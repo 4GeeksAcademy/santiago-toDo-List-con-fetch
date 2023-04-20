@@ -15,7 +15,7 @@ export const Modal = props => {
 			//Crear nuevo contacto
 		} else if(props.index>=0){
 			//Editar contacto
-			let updateContact= store.contacts[props.index]
+			let updateContact= store.contacts.find(contact=>contact.id==props.index)
 			setaddress(updateContact.address)
 			setcontactName(updateContact.name)
 			setphone(updateContact.phone)
@@ -34,7 +34,7 @@ function guardar() {
 
 	}
 	if(props.index==-1){
-		//Crear nuevo contacto
+		//Crear nuevo contacto  
 		actions.addContact(newContact)
 	} else if(props.index>=0){
 		//Editar contacto
@@ -112,7 +112,8 @@ onChange={(e)=>setcontactName(e.target.value)}
 Modal.propTypes = {
 	history: PropTypes.object,
 	onClose: PropTypes.func,
-	show: PropTypes.bool
+	show: PropTypes.bool,
+	index: PropTypes.any
 };
 
 /**

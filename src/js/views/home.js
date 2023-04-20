@@ -7,10 +7,12 @@ import { Modal } from "../component/Modal";
 
 
 export const Home = () => {
+	
 	const {store, actions}=useContext(Context)
-
-const {contacts}=store
-
+	const {contacts}=store
+	useEffect(()=>{
+		actions.getAgenda()
+	},[])
 
 return (
 	<div className="d-flex flex-column justify-center mt-5">
@@ -19,15 +21,15 @@ return (
 		{contacts.map((contact, index)=>
 		<div key={index}>
 		<ContactCard
-		name={contact.name}
+		name={contact.full_name}
 		address={contact.address}
 		phone={contact.phone}
 		email={contact.email}
 		img={rigoImage}
-		onDelete={()=>actions.delContact(index)}
-		index={index}
+		onDelete={()=>actions.delContact(contact.id)}
+		index={contact.id}
 		/>
-		<Modal index={index}></Modal>
+		<Modal index={contact.id}></Modal>
 		</div>
 		)}
 </div>
