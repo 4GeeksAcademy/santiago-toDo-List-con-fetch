@@ -4,10 +4,10 @@ import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
 
 export const Modal = props => {
-	const [contacName, setcontactName]=useState("")
-	const [address, setaddress]=useState("")
-	const [phone, setphone]=useState("")
-	const [email, setemail]=useState("")
+	const [contacName, setcontactName]=useState(props.name)
+	const [address, setaddress]=useState(props.address)
+	const [phone, setphone]=useState(props.phone)
+	const [email, setemail]=useState(props.email)
 	const {store, actions}=useContext(Context)
 
 	useEffect (()=>{
@@ -27,7 +27,7 @@ export const Modal = props => {
 
 function guardar() {
 	let newContact = {
-		name: contacName,
+		full_name: contacName,
 		email: email,
 		phone: phone,
 		address: address,

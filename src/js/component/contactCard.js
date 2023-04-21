@@ -10,8 +10,8 @@ export const ContactCard = props => {
 	});
 
 	return (
-		<li className="list-group-item contact-list">
-			<div className="row w-100">
+		<div className="border p-3">
+			<div className="row w-100 col-8">
 				<div className="col-12 col-sm-6 col-md-3 px-0">
 					<img src={rigoImage} alt={props.name} className="rounded-circle mx-auto d-block img-fluid" />
 				</div>
@@ -46,7 +46,7 @@ export const ContactCard = props => {
 					<span className="text-muted small text-truncate">{props.email}</span>
 				</div>
 			</div>
-		</li>
+		</div>
 	);
 };
 

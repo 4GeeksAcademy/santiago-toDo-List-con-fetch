@@ -15,7 +15,7 @@ export const Home = () => {
 	},[])
 
 return (
-	<div className="d-flex flex-column align-items-center justify-content-center">
+	<div className="d-flex flex-column align-items-center justify-content-center ">
 		<h1>Contact List</h1>
 		<div className="list-group contact-list">
 		{contacts.map((contact, index)=>
@@ -29,7 +29,11 @@ return (
 		onDelete={()=>actions.delContact(contact.id)}
 		index={contact.id}
 		/>
-		<Modal index={contact.id}></Modal>
+		<Modal index={contact.id}
+		name={contact.full_name}
+		address={contact.address}
+		phone={contact.phone}
+		email={contact.email}></Modal>
 		</div>
 		)}
 </div>

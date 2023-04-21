@@ -12,6 +12,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 		actions: {
 			// Use getActions to call a function within a fuction
 			addContact: async(contact) => {
+				console.log(contact, apiUrl)
 				let response = await fetch(apiUrl + "/",{
 					body: JSON.stringify({...contact, agenda_slug: agendaSlug }),
 					method: "POST",
